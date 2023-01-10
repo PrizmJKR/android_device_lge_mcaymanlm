@@ -16,10 +16,11 @@ $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, device/lge/mcaymanlm/device.mk)
 
 PRODUCT_DEVICE := mcaymanlm
-PRODUCT_NAME := omni_mcaymanlm
+PRODUCT_NAME := twrp_mcaymanlm
 PRODUCT_BRAND := lge
 PRODUCT_MODEL := LM-G900TM
 PRODUCT_MANUFACTURER := lge
+PRODUCT_RELEASE_NAME := T-Mobile LG Velvet 5G
 
 PRODUCT_GMS_CLIENTID_BASE := android-lge
 
