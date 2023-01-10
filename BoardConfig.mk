@@ -13,9 +13,11 @@ ALLOW_MISSING_DEPENDENCIES := true
 # A/B
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
+    boot \
     system \
     vendor \
-    product
+    vbmeta \
+    dtbo
 BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Architecture
@@ -39,6 +41,7 @@ DEXPREOPT_GENERATE_APEX_IMAGE := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := mt6885
 TARGET_NO_BOOTLOADER := true
+TARGET_USES_UEFI := true
 
 # Display
 TARGET_SCREEN_DENSITY := 420
@@ -121,13 +124,22 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight-ex/brightness"
+TW_MAX_BRIGHTNESS := 511
+TW_DEFAULT_BRIGHTNESS := 130
+TW_Y_OFFSET := 90
+TW_H_OFFSET := -90
+RECOVERY_SDCARD_ON_DATA := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
 TW_EXCLUDE_SUPERSU := true
-TW_NO_HAPTICS := true
+TW_HAPTICS_TSPDRV := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXCLUDE_SUPERSU := true
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_NTFS_3G := true
-AB_OTA_UPDATER := true
+TW_HAS_EDL_MODE := false
+
+# We can use the factory reset button combo to enter recovery safely
+TW_IGNORE_MISC_WIPE_DATA := true
 
 # These two are for MTK Chipsets only
 BOARD_USES_MTK_HARDWARE := true
